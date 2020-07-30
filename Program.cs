@@ -63,7 +63,7 @@ namespace Lab_5._2_Rock_Paper_Scissors
                     switch (playerString)
                     {
                         case "R":
-                            playerInput = 0;
+                            playerInput = 0; 
                             break;
                         case "P":
                             playerInput = 1;
@@ -125,20 +125,22 @@ namespace Lab_5._2_Rock_Paper_Scissors
                     }
                     Console.Write("Would you like to keep playing? (y/n):");
                     string userQuit = Console.ReadLine().ToUpper();
-                    if (userQuit != "N")
+                    if (userQuit != "Y")
                     {
                         Console.WriteLine("That is not a valid input.");
                         continue;
                     }
-                    else if(userQuit == "Y")
+                    else if(userQuit == "N")
                     {
-                        continue;
+                        Console.WriteLine();
+                        Console.WriteLine("Thanks for playing!");
+                        Console.Write($"Total wins:{winCount}");
+                        Console.WriteLine();
+                        keepPlaying = false;
                     }
                     else
                     {
-                        Console.WriteLine("Thanks for playing!");
-                        Console.Write($"Total wins:{winCount}");
-                        keepPlaying = false;
+                        continue;
                     }
                 } while (keepPlaying);
             }
@@ -169,20 +171,22 @@ namespace Lab_5._2_Rock_Paper_Scissors
                     }
                     Console.Write("Would you like to keep playing? (y/n):");
                     string userQuit = Console.ReadLine().ToUpper();
-                    if (userQuit != "N")
+                    if (userQuit != "Y")
                     {
                         Console.WriteLine("That is not a valid input.");
                         continue;
                     }
-                    else if (userQuit == "Y")
+                    else if (userQuit == "N")
                     {
-                        continue;
+                        Console.WriteLine();
+                        Console.WriteLine("Thanks for playing!");
+                        Console.Write($"Total wins:{winCount}");
+                        Console.WriteLine();
+                        keepPlaying = false;
                     }
                     else
                     {
-                        Console.WriteLine("Thanks for playing!");
-                        Console.Write($"Total wins:{winCount}");
-                        keepPlaying = false;
+                        continue;
                     }
                 } while (keepPlaying);
 
