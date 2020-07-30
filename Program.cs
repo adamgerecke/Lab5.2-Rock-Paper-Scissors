@@ -15,7 +15,8 @@ namespace Lab_5._2_Rock_Paper_Scissors
         { 
             public RoshamboTypes Roshambo { get; set; }
             public string playerName { get; set; }
-            public abstract int GenerateRoshambo();
+            public abstract RoshamboTypes GenerateRoshambo();
+           
 
             public override string ToString()
             {
@@ -25,11 +26,11 @@ namespace Lab_5._2_Rock_Paper_Scissors
         }
         class TheRock : Player
         {
-            public override int GenerateRoshambo()
+            public override RoshamboTypes GenerateRoshambo()
             {
-                int alwaysRock = (int)RoshamboTypes.Rock;
+                //int alwaysRock = (int)RoshamboTypes.Rock;
                
-                return alwaysRock;
+                return RoshamboTypes.Rock;
             }
 
         }
@@ -39,24 +40,33 @@ namespace Lab_5._2_Rock_Paper_Scissors
             
             private static Random rand = new Random();
 
-            public override int GenerateRoshambo()
+            public override RoshamboTypes GenerateRoshambo()
             {
-                int rand_RSB = rand.Next(4);
+                int rand_RSB = rand.Next(3);
 
-                int rand_type = (rand_RSB)RoshamboTypes;
+                var randomChoice = (RoshamboTypes)rand_RSB;
 
-                return rand_type;
+                return randomChoice;
             }
 
         }
 
-        /*class User : Player
+        class User : Player
         {
+            public override RoshamboTypes GenerateRoshambo()
+            {
+                Console.Write("Rock, Paper, or Scissors? (R/P/S):");
+                int playerInput = int.Parse(Console.ReadLine());
+                var playerChoice = (RoshamboTypes)playerInput;
 
-        }*/
+                return playerChoice;
+            }
+        }
         static void Main(string[] args)
         {
             Player p1 = new TheRock();
+            Player p2 = new Mankind();
+            Player p3 = new User();
             
             
             Console.WriteLine("Welcome to Rock Paper Scissors!");
@@ -69,16 +79,23 @@ namespace Lab_5._2_Rock_Paper_Scissors
             Console.Write("Would you like to play against The Rock or Mankind? (R/M):");
             string computerName = Console.ReadLine().ToUpper();
 
-            int rockchoice = p1.GenerateRoshambo();
-            var rChoice = (RoshamboTypes)rockchoice;
+            //int rockchoice = p1.GenerateRoshambo();
+            //string rChoice = (RoshamboTypes)rockchoice;
+            p1.GenerateRoshambo();
 
             if (computerName == "R")
             {
-                Console.Write("Rock, Paper, or Scissors? (R/P/S):");
-                
-                Console.WriteLine(rChoice);
-            }
+                Console.WriteLine(p3.GenerateRoshambo());
+                Console.Write(p1.GenerateRoshambo());
 
+            }
+            else if (computerName == "M")
+            {
+                Console.Write("Rock, Paper, or Scissors? (R/P/S):");
+
+                    Console.WriteLine(p2.GenerateRoshambo());
+     
+            }
             
         }
     }
