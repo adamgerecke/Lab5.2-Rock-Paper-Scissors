@@ -83,7 +83,7 @@ namespace Lab_5._2_Rock_Paper_Scissors
         }
         static void Main(string[] args)
         {
-
+            int winCount = 0;
             Player p2 = new User();
 
 
@@ -117,6 +117,7 @@ namespace Lab_5._2_Rock_Paper_Scissors
                     else if((int)p2.Roshambo == 0 && (int)p1.Roshambo ==2 ||(int)p2.Roshambo ==1 && (int)p1.Roshambo ==0 || (int)p2.Roshambo ==2 && (int)p1.Roshambo ==1)
                     {
                         Console.WriteLine("Win!");
+                        winCount++;
                     }
                     else
                     {
@@ -136,6 +137,7 @@ namespace Lab_5._2_Rock_Paper_Scissors
                     else
                     {
                         Console.WriteLine("Thanks for playing!");
+                        Console.Write($"Total wins:{winCount}");
                         keepPlaying = false;
                     }
                 } while (keepPlaying);
@@ -159,6 +161,7 @@ namespace Lab_5._2_Rock_Paper_Scissors
                     else if ((int)p2.Roshambo == 0 && (int)p1.Roshambo == 2 || (int)p2.Roshambo == 1 && (int)p1.Roshambo == 0 || (int)p2.Roshambo == 2 && (int)p1.Roshambo == 1)
                     {
                         Console.WriteLine("Win!");
+                        winCount++;
                     }
                     else
                     {
@@ -166,8 +169,19 @@ namespace Lab_5._2_Rock_Paper_Scissors
                     }
                     Console.Write("Would you like to keep playing? (y/n):");
                     string userQuit = Console.ReadLine().ToUpper();
-                    if (userQuit != "Y")
+                    if (userQuit != "N")
                     {
+                        Console.WriteLine("That is not a valid input.");
+                        continue;
+                    }
+                    else if (userQuit == "Y")
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Thanks for playing!");
+                        Console.Write($"Total wins:{winCount}");
                         keepPlaying = false;
                     }
                 } while (keepPlaying);
