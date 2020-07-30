@@ -125,9 +125,8 @@ namespace Lab_5._2_Rock_Paper_Scissors
                     }
                     Console.Write("Would you like to keep playing? (y/n):");
                     string userQuit = Console.ReadLine().ToUpper();
-                    if (userQuit != "Y")
+                    if (userQuit == "Y")
                     {
-                        Console.WriteLine("That is not a valid input.");
                         continue;
                     }
                     else if(userQuit == "N")
@@ -140,6 +139,7 @@ namespace Lab_5._2_Rock_Paper_Scissors
                     }
                     else
                     {
+                        Console.WriteLine("That is not a valid input.");
                         continue;
                     }
                 } while (keepPlaying);
@@ -171,9 +171,8 @@ namespace Lab_5._2_Rock_Paper_Scissors
                     }
                     Console.Write("Would you like to keep playing? (y/n):");
                     string userQuit = Console.ReadLine().ToUpper();
-                    if (userQuit != "Y")
+                    if (userQuit == "Y")
                     {
-                        Console.WriteLine("That is not a valid input.");
                         continue;
                     }
                     else if (userQuit == "N")
@@ -186,6 +185,7 @@ namespace Lab_5._2_Rock_Paper_Scissors
                     }
                     else
                     {
+                        Console.WriteLine("That is not a valid input.");
                         continue;
                     }
                 } while (keepPlaying);
