@@ -104,21 +104,38 @@ namespace Lab_5._2_Rock_Paper_Scissors
                 p1.playerName = "The Rock";
                 do
                 {
-                    Console.WriteLine($"{p2.playerName}: {p2.GenerateRoshambo()}"); //User
-                    Console.WriteLine($"{p1.playerName}: {p1.GenerateRoshambo()}"); //Computer
+                    p2.Roshambo = p2.GenerateRoshambo();
+                    p1.Roshambo = p1.GenerateRoshambo();
 
-                    if ((int)p2.Roshambo == (int)p1.Roshambo)
+                    Console.WriteLine($"{p2.playerName}: {p2.Roshambo}"); //User
+                    Console.WriteLine($"{p1.playerName}: {p1.Roshambo}"); //Computer
+
+                    if (p2.Roshambo == p1.Roshambo)
                     {
                         Console.WriteLine("Draw!");
                     }
+                    else if((int)p2.Roshambo == 0 && (int)p1.Roshambo ==2 ||(int)p2.Roshambo ==1 && (int)p1.Roshambo ==0 || (int)p2.Roshambo ==2 && (int)p1.Roshambo ==1)
+                    {
+                        Console.WriteLine("Win!");
+                    }
                     else
                     {
-                        Console.WriteLine("Not a Draw.");
+                        Console.WriteLine("You lose.");
                     }
                     Console.Write("Would you like to keep playing? (y/n):");
                     string userQuit = Console.ReadLine().ToUpper();
-                    if (userQuit != "Y")
+                    if (userQuit != "N")
                     {
+                        Console.WriteLine("That is not a valid input.");
+                        continue;
+                    }
+                    else if(userQuit == "Y")
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Thanks for playing!");
                         keepPlaying = false;
                     }
                 } while (keepPlaying);
@@ -127,11 +144,33 @@ namespace Lab_5._2_Rock_Paper_Scissors
             {
                 Player p1 = new Mankind();
                 p1.playerName = "Mankind";
-                while (keepPlaying)
+                do
                 {
-                    Console.WriteLine($"{p2.playerName}: {p2.GenerateRoshambo()}");
-                    Console.WriteLine($"{p1.playerName}: {p1.GenerateRoshambo()}");
-                }
+                    p2.Roshambo = p2.GenerateRoshambo();
+                    p1.Roshambo = p1.GenerateRoshambo();
+
+                    Console.WriteLine($"{p2.playerName}: {p2.Roshambo}"); //User
+                    Console.WriteLine($"{p1.playerName}: {p1.Roshambo}"); //Computer
+
+                    if (p2.Roshambo == p1.Roshambo)
+                    {
+                        Console.WriteLine("Draw!");
+                    }
+                    else if ((int)p2.Roshambo == 0 && (int)p1.Roshambo == 2 || (int)p2.Roshambo == 1 && (int)p1.Roshambo == 0 || (int)p2.Roshambo == 2 && (int)p1.Roshambo == 1)
+                    {
+                        Console.WriteLine("Win!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("You lose.");
+                    }
+                    Console.Write("Would you like to keep playing? (y/n):");
+                    string userQuit = Console.ReadLine().ToUpper();
+                    if (userQuit != "Y")
+                    {
+                        keepPlaying = false;
+                    }
+                } while (keepPlaying);
 
             }
             
