@@ -58,7 +58,7 @@ namespace Lab_5._2_Rock_Paper_Scissors
                 Console.Write("Rock, Paper, or Scissors? (R/P/S):");
                 string playerString = Console.ReadLine().ToUpper();
 
-                if (playerString == "R" || playerString == "P" || playerString == "S")
+                if (playerString != "R" || playerString != "P" || playerString != "S")
                 {
                     switch (playerString)
                     {
